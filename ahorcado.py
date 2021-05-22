@@ -1,4 +1,4 @@
-import Constantes as const
+import constantes as const
 
 def ofuscar_palabra(palabra, letras_adivinadas):
     return "".join(letra if letra in letras_adivinadas else const.SIGNO_PREGUNTA for letra in palabra)
