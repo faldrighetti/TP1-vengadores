@@ -7,8 +7,11 @@ MENSAJE_LETRA_INGRESADA = "Letra ya ingresada"
 MENSAJE_INGRESO_INVALIDO = "Ingreso inválido"
 MENSAJE_DESPEDIDA = "Hasta luego!"
 MENSAJE_INPUT_LETRA = "Ingrese letra: "
+SEGUIR_JUGANDO = "Desea seguir jugando (si o no): "
+
 
 LETRAS_FIN = ["FIN", "0"]
 
+PUNTAJE_DEL_JUEGO = 0
 LONGITUD_MINIMA_PALABRA = 5
 INDICE_CLAVE = 0

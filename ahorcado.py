@@ -23,6 +23,13 @@ def pedir_letra(letras_usadas):
     
     return letra
 
+def continuar_jugando(SEGUIR_JUGANDO):
+    if SEGUIR_JUGANDO == "si" :
+        jugar_ahorcado("hola")
+    else:
+        print("Gracias por jugar!!!")
+        print("Tu puntaje fue:", const.PUNTAJE_DEL_JUEGO)
+
 def jugar_ahorcado(palabra):
     letra = ""
     letras_adivinadas = []
@@ -37,13 +44,15 @@ def jugar_ahorcado(palabra):
         if letra in palabra:
             letras_adivinadas.append(letra)
             mensaje = const.MENSAJE_ACIERTO
+            const.PUNTAJE_DEL_JUEGO += 10
         else:
             letras_erroneas.append(letra)
             mensaje = const.MENSAJE_DESACIERTO
+            const.PUNTAJE_DEL_JUEGO -= 5
 
         mostrar_informacion(mensaje, palabra, letras_adivinadas, letras_erroneas)
         gano = len(set(palabra)) == len(letras_adivinadas)
 
-    print(f"¡Ganaste!") if gano else print("Perdiste :(")
+    return f"¡Ganaste!", continuar_jugando(input(const.SEGUIR_JUGANDO)) if gano else print("Perdiste :(", const.PUNTAJE_DEL_JUEGO)
 
-jugar_ahorcado("vengadores")
+jugar_ahorcado("hola")
