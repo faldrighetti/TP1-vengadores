@@ -1,10 +1,12 @@
 from texto import obtener_texto
 import constantes as const
-
+import unidecode
 # Devuelve una palabra únicamente con los caracteres (a-z) sin considerar números ni caracteres especiales
 def limpiar_palabra(palabra):
-    return "".join(caracter if caracter.isalpha() else "" for caracter in palabra)
-
+    if '--' in palabra: palabra.replace('--',' ')
+    palabra = "".join(caracter.lower() if caracter.isalpha() else "" for caracter in palabra)
+    palabra_sin_tildes = unidecode.unidecode(palabra)
+    return palabra_sin_tildes
 # Devuelve el diccionario de palabras validas: sin repetidos, sin caracteres especiales, longitud valida.
 #TODO: Arreglar bug de caracteres especiales (revisar split)
 def obtener_dic_palabras_candidatas():
