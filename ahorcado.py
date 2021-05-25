@@ -20,8 +20,8 @@ def pedir_letra(letras_usadas):
             print(f"\n{const.MENSAJE_LETRA_INGRESADA}")
         else:
             letra_valida = True
-    
-    return letra
+
+    return letra.lower()
 
 def jugar_ahorcado(palabra):
     letra = ""
