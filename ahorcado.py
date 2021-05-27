@@ -39,9 +39,11 @@ def seleccion_palabra(desea_letras):
 def continuar_jugando(SEGUIR_JUGANDO):
     if SEGUIR_JUGANDO == "si" :
         jugar_ahorcado(seleccion_palabra(input('Desea una cantidad de letras específica? (si/no) ')))
-    else:
+    elif SEGUIR_JUGANDO == "no":
         print("Gracias por jugar!!!")
         print("Tu puntaje fue:", const.PUNTAJE_DEL_JUEGO)
+    else:
+        print(continuar_jugando(input(const.INTRUZCA_COMANDO_DE_NUEVO)))
 
 def jugar_ahorcado(palabra):
     letra = ""
@@ -67,7 +69,7 @@ def jugar_ahorcado(palabra):
         gano = len(set(palabra)) == len(letras_adivinadas)
 
 
-    return f"¡Ganaste!", continuar_jugando(input(const.SEGUIR_JUGANDO)) if gano else print("Perdiste :(", const.PUNTAJE_DEL_JUEGO)
+    return f"¡Ganaste!", continuar_jugando(input(const.SEGUIR_JUGANDO)) if gano else print("Perdiste :(", "La palabra era:", palabra), continuar_jugando(input(const.SEGUIR_JUGANDO))
 
 
 
