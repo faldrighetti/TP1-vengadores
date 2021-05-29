@@ -25,6 +25,7 @@ def test_elegir_palabra(diccionario):
     Test de la función "elegir_palabra".
     Invoca a la función 10 veces con cada combinación de cant_letras (0 a 20).
     """
+    
     for cant_letras in range(21):
         print(f"Palabras con {cant_letras} letras:")
 
@@ -32,5 +33,3 @@ def test_elegir_palabra(diccionario):
             palabra = elegir_palabra(diccionario, cant_letras)
             if palabra:
                 print(f"{palabra} - {len(palabra)}")
-
-# test_elegir_palabra(devolver_diccionario())

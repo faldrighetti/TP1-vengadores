@@ -46,6 +46,3 @@ def devolver_diccionario():
 def mostrar_diccionario():
     print(devolver_diccionario())
     print(f"\nEl diccionario contiene {len(devolver_diccionario().keys())} palabras")
-
-
-mostrar_diccionario()
