@@ -20,8 +20,8 @@ def pedir_letra(letras_usadas):
             print(f"\n{const.MENSAJE_LETRA_INGRESADA}")
         else:
             letra_valida = True
-    
-    return letra
+
+    return letra.lower()
 
 def continuar_jugando(SEGUIR_JUGANDO):
     if SEGUIR_JUGANDO == "si" :
@@ -55,4 +55,4 @@ def jugar_ahorcado(palabra):
 
     return f"¡Ganaste!", continuar_jugando(input(const.SEGUIR_JUGANDO)) if gano else print("Perdiste :(", const.PUNTAJE_DEL_JUEGO)
 
-jugar_ahorcado("hola")
+jugar_ahorcado("vengadores")
