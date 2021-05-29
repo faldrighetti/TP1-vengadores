@@ -1,6 +1,6 @@
 from texto import obtener_texto
 import constantes as const
-import unidecode
+
 # Devuelve una palabra únicamente con los caracteres (a-z) sin considerar números ni caracteres especiales
 
 def quitar_tildes(palabra):
@@ -42,7 +42,6 @@ def ordenar_diccionario(diccionario):
     diccionario_ordenado = dict(lista_ordenada)
     return diccionario_ordenado
 
-# Mostrar el diccionario
 def devolver_diccionario():
     diccionario_palabras = obtener_dic_palabras_candidatas()
     return ordenar_diccionario(diccionario_palabras)

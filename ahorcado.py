@@ -1,4 +1,8 @@
 import constantes as const
+from etapa3 import elegir_palabra
+from diccionario import devolver_diccionario
+
+diccionario = devolver_diccionario()
 
 def ofuscar_palabra(palabra, letras_adivinadas):
     return "".join(letra if letra in letras_adivinadas else const.SIGNO_PREGUNTA for letra in palabra)
@@ -20,15 +24,25 @@ def pedir_letra(letras_usadas):
             print(f"\n{const.MENSAJE_LETRA_INGRESADA}")
         else:
             letra_valida = True
-
     return letra.lower()
+
+def seleccion_palabra(desea_letras):
+    if desea_letras == 'si':
+        cuantas_letras = input('Cuantas letras? ')
+        palabra_adivinar = elegir_palabra(diccionario, cuantas_letras)
+    else:
+        palabra_adivinar = elegir_palabra(diccionario)
+
+    return palabra_adivinar
 
 def continuar_jugando(SEGUIR_JUGANDO):
     if SEGUIR_JUGANDO == "si" :
-        jugar_ahorcado("hola")
-    else:
+        jugar_ahorcado(seleccion_palabra(input('Desea una cantidad de letras específica? (si/no) ')))
+    elif SEGUIR_JUGANDO == "no":
         print("Gracias por jugar!!!")
         print("Tu puntaje fue:", const.PUNTAJE_DEL_JUEGO)
+    else:
+        print(continuar_jugando(input(const.INTRUZCA_COMANDO_DE_NUEVO)))
 
 def jugar_ahorcado(palabra):
     letra = ""
@@ -53,6 +67,6 @@ def jugar_ahorcado(palabra):
         mostrar_informacion(mensaje, palabra, letras_adivinadas, letras_erroneas)
         gano = len(set(palabra)) == len(letras_adivinadas)
 
-    return f"¡Ganaste!", continuar_jugando(input(const.SEGUIR_JUGANDO)) if gano else print("Perdiste :(", const.PUNTAJE_DEL_JUEGO)
+    return f"¡Ganaste!", continuar_jugando(input(const.SEGUIR_JUGANDO)) if gano else print("Perdiste :(", "La palabra era:", palabra), continuar_jugando(input(const.SEGUIR_JUGANDO))
 
-jugar_ahorcado("vengadores")
+jugar_ahorcado(seleccion_palabra(input('Desea una cantidad de letras específica? (si/no) ')))

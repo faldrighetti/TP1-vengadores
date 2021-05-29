@@ -8,6 +8,7 @@ MENSAJE_INGRESO_INVALIDO = "Ingreso inválido"
 MENSAJE_DESPEDIDA = "Hasta luego!"
 MENSAJE_INPUT_LETRA = "Ingrese letra: "
 SEGUIR_JUGANDO = "Desea seguir jugando (si o no): "
+INTRUZCA_COMANDO_DE_NUEVO = "No entiendo su respuesta, introduzca si o no: "
 
 
 LETRAS_FIN = ["FIN", "0"]
