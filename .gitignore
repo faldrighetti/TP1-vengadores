@@ -1,8 +1,3 @@
-# File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
-
-# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,macos,pycharm,windows,zsh
-# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,macos,pycharm,windows,zsh
-
 ### macOS ###
 # General
 .DS_Store
@@ -130,6 +125,7 @@ fabric.properties
 # Cache file creation bug
 # See https://youtrack.jetbrains.com/issue/JBR-2257
 .idea/$CACHE_FILE$
+.pycache/*
 
 # CodeStream plugin
 # https://plugins.jetbrains.com/plugin/12206-codestream
@@ -208,4 +204,5 @@ zsdoc/data
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 
-cp.log
+.log
+.pyc
