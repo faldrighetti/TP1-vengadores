@@ -6,23 +6,31 @@ import constantes as const
 def seleccion_palabra(desea_letras):
     dicc = diccionario.devolver_diccionario()
 
-    if desea_letras.lower() == 's':
+    if desea_letras.lower() == 'si':
         cant_letras = input('Cuantas letras? ')
-        while not cant_letras.isnumeric():
-            cant_letras = input('Ingrese cantidad de letras correcta: ')
-            
-        palabra_adivinar = diccionario.elegir_palabra(dicc, cant_letras)
-    
-    else:
-        palabra_adivinar = diccionario.elegir_palabra(dicc)
+        while not cant_letras.isnumeric() or diccionario.elegir_palabra(dicc, int(cant_letras)) == None:
+            if not cant_letras.isnumeric():
+                cant_letras = input('Ingrese cantidad de letras correcta: ')
+            elif diccionario.elegir_palabra(dicc, int(cant_letras)) == None:
+                cant_letras = input(f'No hay palabras con esa longitud. Elige una longitud entre {const.LONGITUD_MINIMA_PALABRA} y {const.LONGITUD_MAXIMA_PALABRA}: ')
 
-    return palabra_adivinar
+        palabra_adivinar = diccionario.elegir_palabra(dicc, int(cant_letras))
+        return palabra_adivinar
+
+    elif desea_letras.lower() == 'no':
+        palabra_adivinar = diccionario.elegir_palabra(dicc)
+        return palabra_adivinar
+
+    else:
+        print(seleccion_palabra(input('Introduzca si o no: ')))
+
+
 
 
 def continuar_jugando(SEGUIR_JUGANDO):
-    if SEGUIR_JUGANDO == "si":
-        jugar_ahorcado(seleccion_palabra(input('Desea una cantidad de letras específica? (si/no) ')))
-    elif SEGUIR_JUGANDO == "no":
+    if seguir_jugando == "si":
+        jugar_ahorcado(seleccion_palabra(input(const.DESEA_LETRAS)))
+    elif seguir_jugando == "no":
         print("Gracias por jugar!!!")
         print("Tu puntaje fue:", const.PUNTAJE_DEL_JUEGO)
     else:
@@ -30,19 +38,19 @@ def continuar_jugando(SEGUIR_JUGANDO):
 
 
 def jugar_una_partida():
-    palabra_a_adivinar = seleccion_palabra(input('¿Desea una cantidad de letras específica? (s/n): '))
+    palabra_a_adivinar = seleccion_palabra(input(const.DESEA_LETRAS))
     return ahorcado.jugar_ahorcado(palabra_a_adivinar)
 
 
 def jugar_multiples_partidas():
     puntaje = jugar_una_partida()
 
-    seguir_jugando = input("Desea seguir jugando?: ")
+    seguir_jugando = input(const.SEGUIR_JUGANDO)
 
-    while seguir_jugando.lower() == "s":
+    while seguir_jugando.lower() == "si":
         puntaje += jugar_una_partida()
-        seguir_jugando = input("Desea seguir jugando?: ")
-    
+        seguir_jugando = input(const.SEGUIR_JUGANDO)
+
     print(f"Puntaje total = {puntaje}")
 
 

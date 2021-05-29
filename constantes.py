@@ -8,11 +8,13 @@ MENSAJE_INGRESO_INVALIDO = "Ingreso inválido"
 MENSAJE_DESPEDIDA = "Hasta luego!"
 MENSAJE_INPUT_LETRA = "Ingrese letra: "
 SEGUIR_JUGANDO = "Desea seguir jugando (si o no): "
+DESEA_LETRAS = '¿Desea una cantidad de letras específica? (si/no): '
 INTRUZCA_COMANDO_DE_NUEVO = "No entiendo su respuesta, introduzca si o no: "
 
 LETRAS_FIN = ["FIN", "0"]
 
 LONGITUD_MINIMA_PALABRA = 5
+LONGITUD_MAXIMA_PALABRA = 16
 INDICE_CLAVE = 0
 MAXIMOS_DESACIERTOS_PERMITIDOS = 7
 PUNTAJE_ACIERTO = 10
