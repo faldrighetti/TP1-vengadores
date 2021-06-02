@@ -1,7 +1,16 @@
-import constantes as const
-import diccionario
+for i in range(20):
+    print(i)
+    if i == 2:
+        print('its 2')
+condition = True
+while condition == True:
+    if int(input('Ingrese numero ')) > 5:
+        print('muy grande')
+        else:
+            print('bien')
 
-juan = const.SIGNO_PREGUNTA
-print(juan)
+for i in range(10)
+print(i)
 
-print(max(len(i) for i in list(diccionario.devolver_diccionario().keys())))
+
+print('yess')

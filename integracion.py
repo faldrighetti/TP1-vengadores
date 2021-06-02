@@ -12,7 +12,8 @@ def seleccion_palabra(desea_letras):
             if not cant_letras.isnumeric():
                 cant_letras = input('Ingrese cantidad de letras correcta: ')
             elif diccionario.elegir_palabra(dicc, int(cant_letras)) == None:
-                cant_letras = input(f'No hay palabras con esa longitud. Elige una longitud entre {const.LONGITUD_MINIMA_PALABRA} y {const.LONGITUD_MAXIMA_PALABRA}: ')
+                cant_letras = input(
+                    f'No hay palabras con esa longitud. Elige una longitud entre {const.LONGITUD_MINIMA_PALABRA} y {const.LONGITUD_MAXIMA_PALABRA}: ')
 
         palabra_adivinar = diccionario.elegir_palabra(dicc, int(cant_letras))
         return palabra_adivinar
@@ -23,8 +24,6 @@ def seleccion_palabra(desea_letras):
 
     else:
         print(seleccion_palabra(input('Introduzca si o no: ')))
-
-
 
 
 def continuar_jugando(SEGUIR_JUGANDO):
@@ -54,4 +53,4 @@ def jugar_multiples_partidas():
     print(f"Puntaje total = {puntaje}")
 
 
-jugar_multiples_partidas() # TODO: No funciona, revisar!
+jugar_multiples_partidas()  # TODO: No funciona, revisar!
