@@ -1,8 +1,8 @@
 INFO: Platform: win32
 INFO: Version Info: v0.3.0
 DEBUG: Log Path: cp.log
-DEBUG: command: ['python', 'C:\\users\\joaqu\\onedrive\\escritorio\\tp1-vengadores\\integracion.py']
+DEBUG: command: ['python', 'C:\\Users\\joaqu\\OneDrive\\Escritorio\\TP1-vengadores\\integracion.py']
 DEBUG: file: None
 DEBUG: pause: True
 DEBUG: repl: python
-DEBUG: args: ['C:\\users\\joaqu\\onedrive\\escritorio\\tp1-vengadores\\integracion.py']
+DEBUG: args: ['C:\\Users\\joaqu\\OneDrive\\Escritorio\\TP1-vengadores\\integracion.py']

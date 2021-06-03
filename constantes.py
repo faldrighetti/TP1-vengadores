@@ -5,11 +5,11 @@ MENSAJE_ACIERTO = "Muy bien!!!"
 MENSAJE_DESACIERTO = "Lo siento!!!"
 MENSAJE_LETRA_INGRESADA = "Letra ya ingresada"
 MENSAJE_INGRESO_INVALIDO = "Ingreso inválido"
-MENSAJE_DESPEDIDA = "Hasta luego!"
+MENSAJE_DESPEDIDA = "Gracias por jugar!!!"
 MENSAJE_INPUT_LETRA = "Ingrese letra: "
 SEGUIR_JUGANDO = "Desea seguir jugando (si o no): "
 DESEA_LETRAS = '¿Desea una cantidad de letras específica? (si/no): '
-INTRUZCA_COMANDO_DE_NUEVO = "No entiendo su respuesta, introduzca si o no: "
+INTRODUZCA_COMANDO_DE_NUEVO = "No entiendo su respuesta, introduzca si o no: "
 
 LETRAS_FIN = ["FIN", "0"]
 

@@ -60,14 +60,14 @@ def elegir_palabra(diccionario, cant_letras=0):
     - cant_letras: longitud de la palabra a devolver.
     """
 
-    lista_palabras = list(diccionario.keys());
+    lista_palabras = list(diccionario.keys())
     if cant_letras != 0:
         lista_palabras = list(filter(lambda palabra: len(palabra) == cant_letras, lista_palabras))
 
     return random.choice(lista_palabras) if len(lista_palabras) > 0 else None
 
 
-def test_elegir_palabra(diccionario):
+def test_elegir_palabra(diccionario):  # TODO: Convertir en un doctest o sacar
     """
     Test de la función "elegir_palabra".
     Invoca a la función 10 veces con cada combinación de cant_letras (0 a 20).
