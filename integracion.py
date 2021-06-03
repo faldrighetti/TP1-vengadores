@@ -26,16 +26,6 @@ def seleccion_palabra(desea_letras):
     return palabra_adivinar
 
 
-def continuar_jugando(SEGUIR_JUGANDO):  # sacar mas adelante
-    if seguir_jugando == "si":
-        jugar_ahorcado(seleccion_palabra(input(const.DESEA_LETRAS)))
-    elif seguir_jugando == "no":
-        print("Gracias por jugar!!!")
-        print("Tu puntaje fue:", const.PUNTAJE_DEL_JUEGO)
-    else:
-        print(continuar_jugando(input(const.INTRODUZCA_COMANDO_DE_NUEVO)))
-
-
 def jugar_una_partida():
     palabra_a_adivinar = seleccion_palabra(input(const.DESEA_LETRAS))
     return ahorcado.jugar_ahorcado(palabra_a_adivinar)
@@ -45,16 +35,13 @@ def jugar_multiples_partidas():
     puntaje = jugar_una_partida()
 
     seguir_jugando = input(const.SEGUIR_JUGANDO)
-#    while seguir_jugando.lower() not in ("si", "no"):      # TODO: Decidir que hacer con este caso borde
-#        seguir_jugando = input(const.INTRODUZCA_COMANDO_DE_NUEVO)
 
     while seguir_jugando.lower() == "si":
         puntaje += jugar_una_partida()
         seguir_jugando = input(const.SEGUIR_JUGANDO)
-#    while seguir_jugando.lower() not in ("si", "no"):
-#        seguir_jugando = input(const.INTRODUZCA_COMANDO_DE_NUEVO)
+
     print(f"Puntaje total = {puntaje}")
     print(const.MENSAJE_DESPEDIDA)
 
 
-jugar_multiples_partidas()  # TODO: No funciona, revisar!
+jugar_multiples_partidas()
