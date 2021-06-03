@@ -4,6 +4,7 @@ import constantes as const
 
 
 def seleccion_palabra(desea_letras):
+
     dicc = diccionario.devolver_diccionario()
 
     if desea_letras.lower() == 'si':

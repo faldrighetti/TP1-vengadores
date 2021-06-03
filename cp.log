@@ -6,3 +6,5 @@ DEBUG: file: None
 DEBUG: pause: True
 DEBUG: repl: python
 DEBUG: args: ['C:\\Users\\joaqu\\OneDrive\\Escritorio\\TP1-vengadores\\integracion.py']
+INFO: return code: 0 (0x0)
+INFO: elapsed time: 252.836195
