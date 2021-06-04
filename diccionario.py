@@ -4,6 +4,9 @@ import random
 
 
 def quitar_tildes(palabra):
+    """
+    Devuelve la palabra ingresada eliminando la distinción entre letras sin tilde y letras con tilde.
+    """
     cambios = (("á", "a"), ("é", "e"), ("í", "i"), ("ó", "o"), ("ú", "u"))
     for a, b in cambios:
         palabra = palabra.replace(a, b).replace(a.upper(), b.upper())
@@ -11,13 +14,16 @@ def quitar_tildes(palabra):
 
 
 def limpiar_palabra(palabra):
+    """
+    Devuelve la palabra ingresada sin tildes y además elimina los caracteres que no son letras.
+    """
     palabra = "".join(caracter.lower() if caracter.isalpha() else "" for caracter in palabra)
     return quitar_tildes(palabra)
 
 
 def obtener_dicc_palabras_candidatas():
     """
-    TODO: Completar
+    La función devuelve un diccionario con las palabras cuya longitud es mayor o igual a la longitud mínima indicada
     """
     texto_a_procesar = obtener_texto().replace("--", " ").split()
 
@@ -38,13 +44,17 @@ def ordenar_diccionario(diccionario):
     lista_ordenada = sorted(diccionario.items(), key=lambda tupla: tupla[const.INDICE_CLAVE])
     return dict(lista_ordenada)
 
-
 def devolver_diccionario():
     diccionario_palabras = obtener_dicc_palabras_candidatas()
     return ordenar_diccionario(diccionario_palabras)
 
 
 def mostrar_diccionario():
+    """
+    Esta función está conectada con ordenar_diccionario y devolver_diccionario.
+    Las anteriores toman las palabras del texto y las ordenan por cantidad de palabras.
+    Esta función devuelve la cantidad de palabras que componen el diccionario.
+    """
     print(devolver_diccionario())
     print(f"\nEl diccionario contiene {len(devolver_diccionario().keys())} palabras")
 
