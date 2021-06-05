@@ -4,46 +4,58 @@ import constantes as const
 
 
 def seleccion_palabra(desea_letras):
+    """
+    Esta función pregunta al usuario si quiere jugar con una cantidad determinada de letras. Si dice que sí,
+    le pide que especifique la cantidad y le da la palabra con esa longitud validada. En caso contrario, le
+    proporciona una palabra con una longitud al azar.
+    """
+
     dicc = diccionario.devolver_diccionario()
 
-    if desea_letras.lower() == 's':
+    if desea_letras.lower() == 'si':
         cant_letras = input('Cuantas letras? ')
-        while not cant_letras.isnumeric():
-            cant_letras = input('Ingrese cantidad de letras correcta: ')
-            
-        palabra_adivinar = diccionario.elegir_palabra(dicc, cant_letras)
-    
-    else:
+        while not cant_letras.isnumeric() or diccionario.elegir_palabra(dicc, int(cant_letras)) == None:
+            if not cant_letras.isnumeric():
+                cant_letras = input('Ingrese cantidad de letras correcta: ')
+            elif diccionario.elegir_palabra(dicc, int(cant_letras)) == None:
+                cant_letras = input(
+                    f'No hay palabras con esa longitud. Elige una longitud entre {const.LONGITUD_MINIMA_PALABRA} y {const.LONGITUD_MAXIMA_PALABRA}: ')
+
+        palabra_adivinar = diccionario.elegir_palabra(dicc, int(cant_letras))
+
+    elif desea_letras.lower() == 'no':
         palabra_adivinar = diccionario.elegir_palabra(dicc)
+
+    else:
+        palabra_adivinar = seleccion_palabra(input(const.INTRODUZCA_COMANDO_DE_NUEVO))
 
     return palabra_adivinar
 
 
-def continuar_jugando(SEGUIR_JUGANDO):
-    if SEGUIR_JUGANDO == "si":
-        jugar_ahorcado(seleccion_palabra(input('Desea una cantidad de letras específica? (si/no) ')))
-    elif SEGUIR_JUGANDO == "no":
-        print("Gracias por jugar!!!")
-        print("Tu puntaje fue:", const.PUNTAJE_DEL_JUEGO)
-    else:
-        print(continuar_jugando(input(const.INTRUZCA_COMANDO_DE_NUEVO)))
-
-
 def jugar_una_partida():
-    palabra_a_adivinar = seleccion_palabra(input('¿Desea una cantidad de letras específica? (s/n): '))
+    """
+    La función inicializa la partida
+    """
+    palabra_a_adivinar = seleccion_palabra(input(const.DESEA_LETRAS))
     return ahorcado.jugar_ahorcado(palabra_a_adivinar)
 
 
 def jugar_multiples_partidas():
+    """
+    Esta función aparece al finalizar una partida. Le da una opción al usuario de seguir jugando. En caso de
+    decir que no, devuelve el puntaje final y un mensaje de despedida.
+    En caso de que la respuesta sea positiva, el programa inicializará una partida nueva.
+    """
     puntaje = jugar_una_partida()
 
-    seguir_jugando = input("Desea seguir jugando?: ")
+    seguir_jugando = input(const.SEGUIR_JUGANDO)
 
-    while seguir_jugando.lower() == "s":
+    while seguir_jugando.lower() == "si":
         puntaje += jugar_una_partida()
-        seguir_jugando = input("Desea seguir jugando?: ")
-    
+        seguir_jugando = input(const.SEGUIR_JUGANDO)
+
     print(f"Puntaje total = {puntaje}")
+    print(const.MENSAJE_DESPEDIDA)
 
 
-jugar_multiples_partidas() # TODO: No funciona, revisar!
+jugar_multiples_partidas()

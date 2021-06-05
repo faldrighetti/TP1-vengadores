@@ -125,7 +125,7 @@ fabric.properties
 # Cache file creation bug
 # See https://youtrack.jetbrains.com/issue/JBR-2257
 .idea/$CACHE_FILE$
-.pycache/*
+__pycache__/*
 
 # CodeStream plugin
 # https://plugins.jetbrains.com/plugin/12206-codestream
@@ -204,5 +204,5 @@ zsdoc/data
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 
-.log
+*.log
 .pyc

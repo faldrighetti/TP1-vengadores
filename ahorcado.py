@@ -78,7 +78,14 @@ def juego_ganado(palabra, letras_adivinadas):
 
 def mostrar_mensaje_final(palabra, letras_adivinadas, letra):
     """
-    TODO: Completar
+    Se ejecuta al final de la partida.
+    Devuelve "¡Ganaste!" si el usuario encontró todas las letras, llamando a la función juego_ganado.
+    Devuelve "Gracias por participar" y la palabra que el usuario debía adivinar en caso de agotar los intentos.
+
+    Parámetros:
+    - palabra: La palabra que el usuario debe adivinar.
+    - letras_adivinadas: Cantidad de letras que el usuario acertó durante la partida.
+    - letra: Es el intento del usuario por adivinar ingresando una letra. Si es 0 o FIN, termina la partida.
     """
     mensaje = ""
 
@@ -96,7 +103,10 @@ def mostrar_mensaje_final(palabra, letras_adivinadas, letra):
 
 def jugar_ahorcado(palabra):
     """
-    TODO: Completar
+    Esta función concreta la partida del juego del ahorcado.
+    Al usuario se le da la palabra encriptada, y debe adivinar las letras, con el sistema avisando si
+    acertó en su intento o no.
+    Devuelve el puntaje obtenido al terminar de jugar.
     """
 
     letra = ""
