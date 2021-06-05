@@ -8,8 +8,8 @@ def quitar_tildes(palabra):
     Devuelve la palabra ingresada eliminando la distinción entre letras sin tilde y letras con tilde.
     """
     cambios = (("á", "a"), ("é", "e"), ("í", "i"), ("ó", "o"), ("ú", "u"))
-    for a, b in cambios:
-        palabra = palabra.replace(a, b).replace(a.upper(), b.upper())
+    for vocal_con_tilde, vocal_sin_tilde in cambios:
+        palabra = palabra.replace(vocal_con_tilde, vocal_sin_tilde).replace(vocal_con_tilde.upper(), vocal_sin_tilde.upper())
     return palabra
 
 
@@ -90,3 +90,5 @@ def test_elegir_palabra(diccionario):  # TODO: Convertir en un doctest o sacar
             palabra = elegir_palabra(diccionario, cant_letras)
             if palabra:
                 print(f"{palabra} - {len(palabra)}")
+
+test_elegir_palabra(devolver_diccionario())
