@@ -91,4 +91,3 @@ def test_elegir_palabra(diccionario):  # TODO: Convertir en un doctest o sacar
             if palabra:
                 print(f"{palabra} - {len(palabra)}")
 
-test_elegir_palabra(devolver_diccionario())
