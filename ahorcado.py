@@ -90,12 +90,11 @@ def mostrar_mensaje_final(palabra, letras_adivinadas, letra):
     - letras_adivinadas: Cantidad de letras que el usuario acertó durante la partida.
     - letra: Es el intento del usuario por adivinar ingresando una letra. Si es 0 o FIN, termina la partida.
     """
-    mensaje = ""
 
     if juego_ganado(palabra, letras_adivinadas):
         mensaje = "¡Ganaste!"
 
-    elif letra.upper() in const.LETRAS_FIN:
+    elif letra in const.LETRAS_FIN:
         mensaje = "Gracias por participar"
     
     else:
