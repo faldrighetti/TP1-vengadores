@@ -48,13 +48,13 @@ def jugar_multiples_partidas():
     """
     puntaje = jugar_una_partida()
 
-    seguir_jugando = input(const.SEGUIR_JUGANDO)
+    seguir_jugando = input(f"\n{const.SEGUIR_JUGANDO}")
 
     while seguir_jugando.lower() == "si":
         puntaje += jugar_una_partida()
-        seguir_jugando = input(const.SEGUIR_JUGANDO)
+        seguir_jugando = input(f"\n{const.SEGUIR_JUGANDO}")
 
-    print(f"Puntaje total = {puntaje}")
+    print(f"\nPuntaje total = {puntaje}")
     print(const.MENSAJE_DESPEDIDA)
 
 

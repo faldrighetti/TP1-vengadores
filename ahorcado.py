@@ -36,20 +36,20 @@ def pedir_letra(letras_usadas):
     """
 
     letra_valida = False
-    letra = ""
+    letra = input(const.MENSAJE_INPUT_LETRA)
 
-    while not letra_valida and letra not in const.LETRAS_FIN:
-        letra = input(const.MENSAJE_INPUT_LETRA)
-        letra = letra.lower()
-
+    while not letra_valida and not finalizar_juego(letra):
         if len(letra) != 1 or not letra.isalpha():
             print(f"\n{const.MENSAJE_INGRESO_INVALIDO}")
 
-        elif letra in letras_usadas:
+        elif letra.lower() in letras_usadas or letra.upper() in letras_usadas:
             print(f"\n{const.MENSAJE_LETRA_INGRESADA}")
 
         else:
             letra_valida = True
+
+        if not letra_valida:
+            letra = input(const.MENSAJE_INPUT_LETRA)
 
     return letra
 
@@ -92,7 +92,7 @@ def mostrar_mensaje_final(palabra, letras_adivinadas, letra):
     if juego_ganado(palabra, letras_adivinadas):
         mensaje = "¡Ganaste!"
 
-    elif letra in const.LETRAS_FIN:
+    elif letra.upper() in const.LETRAS_FIN:
         mensaje = "Gracias por participar"
     
     else:
@@ -109,15 +109,14 @@ def jugar_ahorcado(palabra):
     Devuelve el puntaje obtenido al terminar de jugar.
     """
 
-    letra = ""
     letras_adivinadas = []
     letras_erroneas = []
     puntaje = 0
 
-    mostrar_informacion(const.MENSAJE_INICIAL, palabra,letras_adivinadas, letras_erroneas)
+    mostrar_informacion(const.MENSAJE_INICIAL, palabra, letras_adivinadas, letras_erroneas)
+    letra = pedir_letra(letras_adivinadas + letras_erroneas)
 
     while not finalizar_juego(letra) and tiene_intentos(letras_erroneas) and not juego_ganado(palabra, letras_adivinadas):
-        letra = pedir_letra(letras_adivinadas + letras_erroneas)
 
         if letra in palabra:
             letras_adivinadas.append(letra)
@@ -130,6 +129,9 @@ def jugar_ahorcado(palabra):
             puntaje += const.PUNTAJE_DESACIERTO
 
         mostrar_informacion(mensaje, palabra, letras_adivinadas, letras_erroneas)
+
+        if tiene_intentos(letras_erroneas) and not juego_ganado(palabra, letras_adivinadas):
+            letra = pedir_letra(letras_adivinadas + letras_erroneas)
     
     mostrar_mensaje_final(palabra, letras_adivinadas, letra)
 
