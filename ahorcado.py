@@ -15,7 +15,7 @@ def ofuscar_palabra(palabra, letras_adivinadas):
 
 def mostrar_informacion(mensaje, palabra, letras_adivinadas, letras_erroneas):
     """
-    TODO: Completar
+    Informa sobre el progreso de juego
     """
 
     palabra = ofuscar_palabra(palabra, letras_adivinadas)

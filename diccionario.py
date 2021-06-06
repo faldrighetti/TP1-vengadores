@@ -53,7 +53,7 @@ def mostrar_diccionario():
     """
     Esta función está conectada con ordenar_diccionario y devolver_diccionario.
     Las anteriores toman las palabras del texto y las ordenan por cantidad de palabras.
-    Esta función devuelve la cantidad de palabras que componen el diccionario.
+    Esta función muestra la cantidad de palabras que componen el diccionario.
     """
     print(devolver_diccionario())
     print(f"\nEl diccionario contiene {len(devolver_diccionario().keys())} palabras")
@@ -77,7 +77,7 @@ def elegir_palabra(diccionario, cant_letras=0):
     return random.choice(lista_palabras) if len(lista_palabras) > 0 else None
 
 
-def test_elegir_palabra(diccionario):  # TODO: Convertir en un doctest o sacar
+def test_elegir_palabra(diccionario):
     """
     Test de la función "elegir_palabra".
     Invoca a la función 10 veces con cada combinación de cant_letras (0 a 20).
