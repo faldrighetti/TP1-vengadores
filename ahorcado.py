@@ -3,6 +3,8 @@ import constantes as const
 
 def ofuscar_palabra(palabra, letras_adivinadas):
     """
+    Autor: Joaquin Mendaña.
+
     Ofusca las letras de la palabra que todavía no han sido adivinadas utilizando signos de pregunta (?)
 
     Parámetros:
@@ -15,6 +17,8 @@ def ofuscar_palabra(palabra, letras_adivinadas):
 
 def mostrar_informacion(mensaje, palabra, letras_adivinadas, letras_erroneas):
     """
+    Autor: Joaquin Mendaña.
+
     Informa sobre el progreso de juego
     """
 
@@ -24,6 +28,8 @@ def mostrar_informacion(mensaje, palabra, letras_adivinadas, letras_erroneas):
 
 def pedir_letra(letras_usadas):
     """
+    Autor: Joaquin Mendaña.
+
     Solicita una letra al usuario realizando las siguientes validaciones:
     - Se ingresó un único caracter válido (no numérico o especial)
     - La letra no se utilizó en intentos anteriores
@@ -59,6 +65,8 @@ def pedir_letra(letras_usadas):
 
 def tiene_intentos(letras_erroneas):
     """
+    Autor: Joaquin Mendaña.
+
     Devuelve True si el usuario cuenta con intentos disponibles, es decir,
     si la cantidad de letras erróneas ingresadas es menor a la cantidad máxima de desaciertos permitidos.
     """
@@ -67,6 +75,8 @@ def tiene_intentos(letras_erroneas):
 
 def finalizar_juego(letra):
     """
+    Autor: Alejandro Schamun.
+
     Devuelve True si la letra ingresada por el usuario es una letra de fin utilizada para finalizar el juego.
     """
     return letra in const.LETRAS_FIN
@@ -74,6 +84,8 @@ def finalizar_juego(letra):
 
 def juego_ganado(palabra, letras_adivinadas):
     """
+    Autor: Alejandro Schamun.
+
     Devuelve True si el jugador adivinó todas las letras de la palabra.
     """
     return len(set(palabra)) == len(letras_adivinadas)
@@ -81,6 +93,8 @@ def juego_ganado(palabra, letras_adivinadas):
 
 def mostrar_mensaje_final(palabra, letras_adivinadas, letra):
     """
+    Autor: Alejandro Schamun.
+
     Se ejecuta al final de la partida.
     Devuelve "¡Ganaste!" si el usuario encontró todas las letras, llamando a la función juego_ganado.
     Devuelve "Gracias por participar" y la palabra que el usuario debía adivinar en caso de agotar los intentos.
@@ -105,6 +119,8 @@ def mostrar_mensaje_final(palabra, letras_adivinadas, letra):
 
 def jugar_ahorcado(palabra):
     """
+    Autor: Alejandro Schamun.
+
     Esta función concreta la partida del juego del ahorcado.
     Al usuario se le da la palabra encriptada, y debe adivinar las letras, con el sistema avisando si
     acertó en su intento o no.
