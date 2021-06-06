@@ -5,6 +5,8 @@ import constantes as const
 
 def seleccion_palabra(desea_letras):
     """
+    Autor: Federico Aldrighetti.
+
     Esta función pregunta al usuario si quiere jugar con una cantidad determinada de letras. Si dice que sí,
     le pide que especifique la cantidad y le da la palabra con esa longitud validada. En caso contrario, le
     proporciona una palabra con una longitud al azar.
@@ -34,6 +36,8 @@ def seleccion_palabra(desea_letras):
 
 def jugar_una_partida():
     """
+    Autor: Facundo Sanso.
+
     La función inicializa la partida
     """
     palabra_a_adivinar = seleccion_palabra(input(const.DESEA_LETRAS))
@@ -42,19 +46,21 @@ def jugar_una_partida():
 
 def jugar_multiples_partidas():
     """
+    Autor: Facundo Sanso.
+
     Esta función aparece al finalizar una partida. Le da una opción al usuario de seguir jugando. En caso de
     decir que no, devuelve el puntaje final y un mensaje de despedida.
     En caso de que la respuesta sea positiva, el programa inicializará una partida nueva.
     """
     puntaje = jugar_una_partida()
 
-    seguir_jugando = input(const.SEGUIR_JUGANDO)
+    seguir_jugando = input(f"\n{const.SEGUIR_JUGANDO}")
 
     while seguir_jugando.lower() == "si":
         puntaje += jugar_una_partida()
-        seguir_jugando = input(const.SEGUIR_JUGANDO)
+        seguir_jugando = input(f"\n{const.SEGUIR_JUGANDO}")
 
-    print(f"Puntaje total = {puntaje}")
+    print(f"\nPuntaje total = {puntaje}")
     print(const.MENSAJE_DESPEDIDA)
 
 
