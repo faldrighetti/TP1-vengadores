@@ -51,6 +51,9 @@ def pedir_letra(letras_usadas):
         if not letra_valida:
             letra = input(const.MENSAJE_INPUT_LETRA)
 
+    if not finalizar_juego(letra):
+        letra = letra.lower()
+
     return letra
 
 
