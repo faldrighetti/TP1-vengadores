@@ -37,11 +37,7 @@ def creacion_de_listas(lista_archivos):
 
 
 def quitar_tildes(palabra):
-    """
-    Autor: Martin Morono.
 
-    Devuelve la palabra ingresada eliminando la distinción entre letras sin tilde y letras con tilde.
-    """
     cambios = (("á", "a"), ("é", "e"), ("í", "i"), ("ó", "o"), ("ú", "u"))
     for vocal_con_tilde, vocal_sin_tilde in cambios:
         palabra = palabra.replace(vocal_con_tilde, vocal_sin_tilde).replace(
@@ -50,6 +46,7 @@ def quitar_tildes(palabra):
 
 
 def limpiar_palabra(palabra):
+
     palabra_limpia = "".join(caracter.lower() if caracter.isalpha()
                              else "" for caracter in palabra)
     palabra_sin_tildes = quitar_tildes(palabra_limpia)
@@ -86,17 +83,10 @@ def creacion_texto(lista_de_listas):
     palabra_noches = lista_de_listas[1][indice_noches]
     palabra_arania = lista_de_listas[2][indice_arania]
 
-    # longitudes_listas = (len(lista_de_listas[0])-1,
-    # len(lista_de_listas[1])-1, len(lista_de_listas[2])-1)
-
-    # print(longitudes_listas)
-
     while indice_cuentos < (len(lista_de_listas[0])-1) and indice_noches < (len(lista_de_listas[1])-1) and indice_arania < (len(lista_de_listas[2])-1):
 
         palabra = min(palabra_cuentos, palabra_noches, palabra_arania)
-        #print(indice_arania, (len(lista_de_listas[2])-1))
         contador_cuentos, contador_noches, contador_arania = (0, 0, 0)
-        #print(palabra, palabra_cuentos, palabra_noches, palabra_arania)
 
         while palabra_cuentos == palabra:
             contador_cuentos += 1
@@ -116,7 +106,6 @@ def creacion_texto(lista_de_listas):
             if indice_arania < len(lista_de_listas[2]):
                 palabra_arania = lista_de_listas[2][indice_arania]
 
-        #print('ESCRIBE', palabra)
         archivo_palabras.write(
             f'{palabra},{contador_cuentos},{contador_noches},{contador_arania} \n')
 
