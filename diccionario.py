@@ -11,7 +11,8 @@ def quitar_tildes(palabra):
     """
     cambios = (("á", "a"), ("é", "e"), ("í", "i"), ("ó", "o"), ("ú", "u"))
     for vocal_con_tilde, vocal_sin_tilde in cambios:
-        palabra = palabra.replace(vocal_con_tilde, vocal_sin_tilde).replace(vocal_con_tilde.upper(), vocal_sin_tilde.upper())
+        palabra = palabra.replace(vocal_con_tilde, vocal_sin_tilde).replace(
+            vocal_con_tilde.upper(), vocal_sin_tilde.upper())
     return palabra
 
 
@@ -54,6 +55,7 @@ def ordenar_diccionario(diccionario):
     """
     lista_ordenada = sorted(diccionario.items(), key=lambda tupla: tupla[const.INDICE_CLAVE])
     return dict(lista_ordenada)
+
 
 def devolver_diccionario():
     """
@@ -112,4 +114,3 @@ def test_elegir_palabra(diccionario):
             palabra = elegir_palabra(diccionario, cant_letras)
             if palabra:
                 print(f"{palabra} - {len(palabra)}")
-
